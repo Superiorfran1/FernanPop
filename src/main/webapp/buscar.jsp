@@ -142,8 +142,8 @@
         // MODO FRAGMENTO: respuesta a fetch() del buscador en vivo.
         // Solo el HTML de dentro de #resultsArea, nada de página completa.
         response.setContentType("text/html; charset=UTF-8");
-        System.out.print(htmlResultados);
-        System.out.flush();
+        out.print(htmlResultados);
+        out.flush();
         return;
     }
 %>
