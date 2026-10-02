@@ -310,30 +310,14 @@ Vendedor elige comprador entre los interesados (Cerrar venta)
 Comprador valora de 0 a 5 estrellas  ──►  afecta a la nota media del vendedor
 ```
 
-## Notas de seguridad y mejoras pendientes
-
-Este es un proyecto educativo; antes de exponerlo públicamente conviene abordar lo siguiente:
-
-**Seguridad (prioritario)**
-- 🔴 **`config.properties` contiene todos los secretos** (BBDD, admin, Gmail, Telegram). Ya no hay credenciales en el código, pero ese fichero **no debe subirse nunca al repositorio**: añade `FernanPop/data/config.properties` al `.gitignore` y comparte solo `config.properties.example`. Si en algún momento estas credenciales se publicaron (en un repositorio, un `.rar`, etc.), **revócalas y genera otras**: el token de Telegram (con *@BotFather*), la contraseña de aplicación de Gmail y la contraseña de la base de datos.
-- 🔴 **Contraseñas en texto plano** en la base de datos. Deberían guardarse con un *hash* con sal (BCrypt o Argon2).
-- 🟠 El mensaje de Telegram de alta de usuario incluye la contraseña (`UI.msgNuevoUsuario`); conviene eliminarla.
-- 🟠 No hay protección CSRF en los formularios.
-- 🟠 `data/Testing.java` contiene usuarios de prueba con correos y contraseñas escritos en el código; úsalo solo en desarrollo.
+## Mejoras pendientes
 
 **Errores conocidos**
-- `buscar.jsp`: el modo fragmento (búsqueda en vivo) usa `System.out.print(...)`; debería ser `out.print(...)` para escribir en la respuesta HTTP.
 - `admin.jsp` usa `request.getPart(...)` para restaurar copias, pero `web.xml` no declara `<multipart-config>`; en Tomcat esto puede provocar un error al subir el fichero.
 - `AppConfig.resolverRutaConfig()` incluye una ruta absoluta de Windows del equipo del autor.
 
 **Limpieza y mantenimiento**
-- `views/Main.java` tiene el `main` comentado, así que la versión de consola no se puede arrancar tal cual.
-- El `pom.xml` declara Java 8 en las propiedades y 15 en el `maven-compiler-plugin`; unifica las versiones.
-- Hay JARs duplicados en `src/main/java/libraries/` (ya gestionados por Maven) y una carpeta `bins/` heredada del almacenamiento antiguo.
-- `src/main/webapp/WEB-INF/index.jsp` no es accesible desde el navegador; la portada real es `webapp/index.jsp`.
 - La documentación de `Communications` menciona Apache POI/Excel, pero la exportación actual es CSV.
-- Faltan tests: JUnit está declarado como dependencia, pero no hay clases de prueba.
-
 ## Autor
 
 Hecho por **Francisco Cantero Maestro**.
