@@ -50,7 +50,7 @@ import java.util.Properties;
  * - Telegram (Bot API): alertas y logs rápidos al administrador.
  * - Gmail (SMTP / JavaMail): correos formales con adjuntos.
  * - PDF (Apache PDFBox 3.0.7): recibo de trato adjunto al correo.
- * - Excel (Apache POI 5.2.5): listado de productos en .xlsx.
+ * - CSV (sin librerías externas): listado de productos en .csv, que Excel abre directamente.
  *
  * LIBRERÍAS REQUERIDAS (en /FernanPop/librerias):
  *   javax_mail-1_6_2.jar          → SMTP
