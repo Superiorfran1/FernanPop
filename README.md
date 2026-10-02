@@ -305,7 +305,6 @@ Este es un proyecto educativo; antes de exponerlo públicamente conviene abordar
 - 🟠 No hay protección CSRF en los formularios.
 
 **Errores conocidos**
-- `buscar.jsp`: el modo fragmento (búsqueda en vivo) usa `System.out.print(...)`; debería ser `out.print(...)` para escribir en la respuesta HTTP.
 - `admin.jsp` usa `request.getPart(...)` para restaurar copias, pero `web.xml` no declara `<multipart-config>`; en Tomcat esto puede provocar un error al subir el fichero.
 - `AppConfig.resolverRutaConfig()` incluye una ruta absoluta de Windows del equipo del autor.
 
