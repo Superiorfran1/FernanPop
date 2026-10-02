@@ -315,8 +315,6 @@ Comprador valora de 0 a 5 estrellas  ──►  afecta a la nota media del vende
 **Errores conocidos**
 - `admin.jsp` usa `request.getPart(...)` para restaurar copias, pero `web.xml` no declara `<multipart-config>`; en Tomcat esto puede provocar un error al subir el fichero.
 
-**Limpieza y mantenimiento**
-- La documentación de `Communications` menciona Apache POI/Excel, pero la exportación actual es CSV.
 ## Autor
 
 Hecho por **Francisco Cantero Maestro**.
