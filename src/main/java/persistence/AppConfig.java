@@ -81,7 +81,7 @@ public class AppConfig {
         // Posibles ubicaciones del archivo (en orden de preferencia)
         String[] rutasPosibles = {
             // Ruta esperada cuando se ejecuta como aplicación en Tomcat
-            "C:\\Users\\junio\\IdeaProjects\\ejRepaso1\\FernanPop\\FernanPop\\data\\config.properties",
+            "FernanPop/data/config.properties",
             // Ruta cuando dirTrabajo es la carpeta padre (ej: C:\Users\junio\IdeaProjects\ejRepaso1\FernanPop)
             dirTrabajo + File.separator + "FernanPop" + File.separator + "data" + File.separator + "config.properties",
             // Ruta cuando dirTrabajo ya es FernanPop
