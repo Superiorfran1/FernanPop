@@ -92,6 +92,7 @@ El proyecto nació como aplicación de **consola** en Java y evolucionó a una *
 FernanPop/
 ├── pom.xml
 ├── mvnw / mvnw.cmd
+├── imagenes/                      # Logo de la aplicación (se sirve desde internet)
 ├── FernanPop/
 │   └── data/
 │       ├── config.properties      # Configuración de la aplicación
@@ -127,6 +128,8 @@ FernanPop/
         ├── admin.jsp                      # Solo administrador
         └── WEB-INF/web.xml
 ```
+
+> **Sobre la carpeta `imagenes/`:** está en el directorio raíz del repositorio y contiene el logo de FernanPop. **No hace falta instalarla ni copiarla** en el servidor ni en el dispositivo: las páginas cargan la imagen directamente desde internet (desde el propio repositorio de GitHub, mediante la URL `raw.githubusercontent.com`). Por tanto, para que el logo y el favicon se vean, el equipo que abra la aplicación solo necesita conexión a internet.
 
 ## Arquitectura
 
@@ -185,6 +188,7 @@ El esquema se crea solo al primer arranque; no hace falta ningún script manual.
 - **MySQL 8** (local o en la nube: Clever Cloud, Railway...)
 - **Apache Tomcat 10.1 o 11** (Jakarta EE; Tomcat 9 o anterior **no** sirve porque usa `jakarta.*`)
 - Cuenta de **Gmail con contraseña de aplicación** (para los correos) y, opcionalmente, un **bot de Telegram**
+- **Conexión a internet** en los equipos que usen la web: el logo y el favicon se cargan desde GitHub (la carpeta `imagenes/` no se instala en local)
 
 ### 1. Crear la base de datos
 
