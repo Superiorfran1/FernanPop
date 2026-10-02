@@ -3,4 +3,25 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
+
+    <!-- Subida de ficheros en admin.jsp (restaurar copia de seguridad).
+         Sin <multipart-config>, Tomcat lanza IllegalStateException al llamar a
+         request.getPart(). Declarar la JSP como servlet es la forma estándar
+         de activarlo para una página concreta. -->
+    <servlet>
+        <servlet-name>adminJsp</servlet-name>
+        <jsp-file>/admin.jsp</jsp-file>
+        <multipart-config>
+            <!-- Tamaño máximo del fichero y de la petición: 50 MB (en bytes) -->
+            <max-file-size>52428800</max-file-size>
+            <max-request-size>52428800</max-request-size>
+            <!-- A partir de este tamaño se escribe a disco en vez de memoria -->
+            <file-size-threshold>1048576</file-size-threshold>
+        </multipart-config>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adminJsp</servlet-name>
+        <url-pattern>/admin.jsp</url-pattern>
+    </servlet-mapping>
+
 </web-app>
