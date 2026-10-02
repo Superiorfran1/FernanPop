@@ -293,17 +293,6 @@ Vendedor elige comprador entre los interesados (Cerrar venta)
         ▼
 Comprador valora de 0 a 5 estrellas  ──►  afecta a la nota media del vendedor
 ```
-
-## Notas de seguridad y mejoras pendientes
-
-Este es un proyecto educativo; antes de exponerlo públicamente conviene abordar lo siguiente:
-
-**Seguridad (prioritario)**
-- 🔴 **Credenciales en el código y en el repositorio.** `Communications.java` contiene la contraseña de aplicación de Gmail y el *token* del bot de Telegram escritos a fuego, y `config.properties` guarda credenciales de la base de datos y del administrador. Si el repositorio es o ha sido público, **revoca y regenera esas credenciales** y muévelas a variables de entorno o a un fichero fuera del control de versiones (añade `FernanPop/data/config.properties` al `.gitignore`).
-- 🔴 **Contraseñas en texto plano** en la base de datos. Deberían guardarse con un *hash* con sal (BCrypt o Argon2).
-- 🟠 El mensaje de Telegram de alta de usuario incluye la contraseña (`UI.msgNuevoUsuario`); conviene eliminarla.
-- 🟠 No hay protección CSRF en los formularios.
-
 **Errores conocidos**
 - `admin.jsp` usa `request.getPart(...)` para restaurar copias, pero `web.xml` no declara `<multipart-config>`; en Tomcat esto puede provocar un error al subir el fichero.
 - `AppConfig.resolverRutaConfig()` incluye una ruta absoluta de Windows del equipo del autor.
